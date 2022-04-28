@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 static double const& sqrt5 = sqrt(5); // for binets method
 
-int recursiveFibonacci(int n)
+ll recursiveFibonacci(ll n)
 {
-    int result;
+    ll result;
     if (n == 0 || n == 1)
         result = n;
     else
@@ -12,14 +13,14 @@ int recursiveFibonacci(int n)
     return result;
 }
 
-int iterativeFibonacci(int n)
+ll iterativeFibonacci(ll n)
 {
     if (n == 0)
         return 0;
     if (n == 1)
         return 1;
     auto first = 0, second = 1, result = 0;
-    for (int i = 2; i <= n; i++)
+    for (ll i = 2; i <= n; i++)
     {
         result = first + second;
         first = second;
@@ -28,18 +29,18 @@ int iterativeFibonacci(int n)
     return result;
 }
 
-int binetsFormula(int n)
+ll binetsFormula(ll n)
 {
     return (1/sqrt5) * (pow((1+sqrt5)/2, n) - pow((1-sqrt5)/2, n));
 }
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
     auto startTimer = std::chrono::high_resolution_clock::now();
 
-    recursiveFibonacci(n);
+    //recursiveFibonacci(n);
 
     auto stopTimer = std::chrono::high_resolution_clock::now();
     auto duration =
@@ -50,7 +51,7 @@ int main()
 
     startTimer = std::chrono::high_resolution_clock::now();
 
-    binetsFormula(n);
+    cout << "Binets: " << binetsFormula(n) << endl;
 
     stopTimer = std::chrono::high_resolution_clock::now();
     duration =
@@ -61,7 +62,7 @@ int main()
 
     startTimer = std::chrono::high_resolution_clock::now();
 
-    iterativeFibonacci(n);
+    cout << "Iterative: " << iterativeFibonacci(n) << endl;
 
     stopTimer = std::chrono::high_resolution_clock::now();
     duration =
